@@ -1,27 +1,42 @@
 <template>
-  <div>
-    <h1>Hello Nuxters! 👋</h1>
-    <p>
-      This page is rendered on the <strong>{{ rendering }}</strong>
-    </p>
-    <p v-if="rendering === 'server'">
-      First load or hard refresh is done on server side.
-    </p>
-    <p v-if="rendering === 'client'">Navigation is done on client side.</p>
-    <ul>
-      <li>Refresh the page for server side rendering.</li>
-      <li>Click the links to see client side rendering.</li>
-    </ul>
-
-    <NuxtLink to="/about">About Page</NuxtLink>
-  </div>
+  <header>
+    <img src="logo.svg" alt="Logo">
+    <h1>{{ title }}</h1>
+  </header>
 </template>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+  background-color: #001e26;
+  color: white;
+}
+
+header img {
+  margin: auto 0 auto auto;
+  width: 150px;
+}
+
+header h1 {
+  margin: auto auto auto 0;
+  font-size: 5em;
+  font-family: sans-serif;
+}
+</style>
 
 <script>
 export default {
   asyncData() {
     return {
-      rendering: process.server ? 'server' : 'client'
+      title: 'Nuxt'
     }
   }
 }
